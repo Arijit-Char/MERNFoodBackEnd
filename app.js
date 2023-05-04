@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+const PORT = process.env.PORT || 5000;
 const mongoDB = require("./db");
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -18,6 +20,6 @@ app.get("/", function (req, res) {
 app.use(express.json());
 app.use("/api", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/DisplayData"));
-app.listen(5000, function () {
+app.listen(PORT, function () {
   console.log("server is running");
 });

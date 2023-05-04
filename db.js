@@ -1,10 +1,10 @@
 //jshint esversion:6
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 const mongoDB = async () => {
   await mongoose
     .connect(
-      "mongodb+srv://foodMern:6aPpsTd9FqMfoY51@cluster0.ycz67wz.mongodb.net/foodMern?retryWrites=true&w=majority",
+     process.env.MONGO_URL,
       { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(async (result) => {
