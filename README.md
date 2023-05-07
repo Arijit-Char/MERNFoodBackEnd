@@ -10,7 +10,6 @@ MERNFoodBackEnd
 - MongoDB
 - Express.js
 - React
-- Node.js
 
 ## Getting Started
 
