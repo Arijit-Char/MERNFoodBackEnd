@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
+
 require("dotenv").config();
+app.use(cors());
+
 const PORT = process.env.PORT || 5000;
 const mongoDB = require("./db");
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", process.env.FRONT_URL);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With , Content-Type,Accept" //Allow backend to use it in frontend
-  );
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
